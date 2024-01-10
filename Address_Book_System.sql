@@ -38,3 +38,8 @@ update address_book
 set email='zodge@gmail.com'
 where firstName='Prakash';
 select * from address_book;
+
+-- Use case 5 : 
+-- Ability to delete a person using person's name
+delete from address_book where firstName='Pavan';
+select * from address_book;
