@@ -30,3 +30,11 @@ insert into address_book values
 ('Nikhil','Namdev','N-9, Bajrang Chowk','Phulambri',
 'Kannad','565291','8889997653','nikhil@gmail.com');
 select * from address_book; 						-- Use to display all tables
+
+-- Use case 4 : 
+-- Ability to edit existing contact person using their name
+SET SQL_SAFE_UPDATES = 0; 							-- Is use to convert from safe mode to unsafe mode
+update address_book 
+set email='zodge@gmail.com'
+where firstName='Prakash';
+select * from address_book;
