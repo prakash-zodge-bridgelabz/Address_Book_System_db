@@ -47,3 +47,11 @@ select * from address_book;
 -- Use case 6 :
 -- Ability to Retrieve Person belonging to a City or State from the Address Book
 select * from address_book where city='Aurangabad';
+
+-- Use case 7 : 
+-- Ability to understand the size of address book by City and State 
+-- - Here size indicates the count
+select * from address_book;
+insert into address_book values('Pavan','Zore','N-8, Gangapur','Aurangabad',
+'Maharashtra','431007','9988776655','pavan@gmail.com');
+select count(*) from address_book where city='Aurangabad' and state='Maharashtra';
