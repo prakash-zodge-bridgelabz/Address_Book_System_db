@@ -43,3 +43,7 @@ select * from address_book;
 -- Ability to delete a person using person's name
 delete from address_book where firstName='Pavan';
 select * from address_book;
+
+-- Use case 6 :
+-- Ability to Retrieve Person belonging to a City or State from the Address Book
+select * from address_book where city='Aurangabad';
