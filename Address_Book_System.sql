@@ -55,3 +55,7 @@ select * from address_book;
 insert into address_book values('Pavan','Zore','N-8, Gangapur','Aurangabad',
 'Maharashtra','431007','9988776655','pavan@gmail.com');
 select count(*) from address_book where city='Aurangabad' and state='Maharashtra';
+
+-- Use case 8 : 	
+-- Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+select * from address_book where city='Aurangabad' order by firstName asc;
