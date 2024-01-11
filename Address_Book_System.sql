@@ -116,3 +116,28 @@ insert into address_book_ values
 (5,'Atharva','Belge','N-2, TV Center','Nashik','MH','444333','9879879870','atharv@gmail.com','FRI'),
 (6,'Atharva','Belge','N-2, TV Center','Nashik','MH','444333','9879879870','atharv@gmail.com','FA');
 select * from address_book_;
+
+-- Use case 13
+-- Ensure all retrieve queries done especially in UC 6, UC 7, UC 8 and UC 10 
+-- are working with new table structure
+-- 		(UC6) -> Ability to Retrieve Person belonging to a City or State from 
+-- 				the Address Book
+select a.id,a.firstName,a.lastName,a.address,a.city,s.s_name,a.zip,
+a.phoneNumber,a.email,t.t_name from address_book_ a join states s on a.state=s.s_id
+join types t on a.type=t.t_id;
+
+-- 		(UC7) -> Ability to understand the size of address book by City and State 
+-- 				- Here size indicates the count
+select count(*) from address_book_ a join states s on a.state=s.s_id
+join types t on a.type=t.t_id
+where a.city='Aurangabad' and s.s_name='Maharashtra';
+
+-- 		(UC8) -> Ability to retrieve entries sorted alphabetically by Person’s name 
+-- 				for a given city
+select a.id,a.firstName,a.lastName,a.address,a.city,s.s_name,a.zip,
+a.phoneNumber,a.email,t.t_name from address_book_ a join states s on a.state=s.s_id
+join types t on a.type=t.t_id where a.city='Aurangabad' order by a.firstName asc;
+
+-- 		(UC10) -> Ability to get number of contact persons i.e. count by type
+select count(*) from address_book_ a join states s on a.state=s.s_id
+join types t on a.type=t.t_id where t.t_name='Profession';
