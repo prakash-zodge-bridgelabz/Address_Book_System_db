@@ -70,3 +70,7 @@ update address_book set type='Family' where firstName='Pavan';
 update address_book set type='Friends' where firstName='Mrinal';
 update address_book set type='Profession' where firstName='Nikhil';
 update address_book set type='Profession' where firstName='Prakash';
+
+-- Use case 10:
+-- Ability to get number of contact persons i.e. count by type
+select count(*) from address_book where type='Profession';
