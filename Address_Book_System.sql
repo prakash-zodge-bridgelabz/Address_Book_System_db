@@ -81,3 +81,38 @@ insert into address_book values('Atharva','Belge','N-2, TV Center','Nashik',
 'Maharashtra','444333','9879879870','atharv@gmail.com','Friends');
 insert into address_book values('Atharva','Belge','N-2, TV Center','Nashik',
 'Maharashtra','444333','9879879870','atharv@gmail.com','Family');
+
+-- Use case 12:
+-- Draw the ER Diagram for Address Book Service DB
+-- - Identifies the Entities 
+-- – Entities can be Identified using Normalization Technique
+-- - Check each attribute and see if they are Composite or MultiValued
+select * from address_book;
+create table states(s_id varchar(2),s_name varchar(15),primary key(s_id));
+insert into states values
+('MH','Maharashtra'),
+('UP','Uttar Pradesh'),
+('KA','Kannad');
+select * from states;
+create table types(t_id varchar(3),t_name varchar(15),primary key(t_id));
+insert into types values
+('PRO','Profession'),
+('FRI','Friends'),
+('FA','Family');
+select * from types;
+create table address_book_(id int,firstName varchar(15),lastName varchar(15),
+address varchar(30),city varchar(15),state varchar(2),zip varchar(15),
+phoneNumber varchar(11),email varchar(30),type varchar(3),
+primary key(id),
+foreign key(state) references states(s_id),
+foreign key(type) references types(t_id));
+desc address_book_;
+select * from address_book;
+insert into address_book_ values
+(1,'Prakash','Zodge','N-5, CIDCO','Aurangabad','MH','431003','9876543210','zodge@gmail.com','PRO'),
+(2,'Mrinal','Keshav','N-1, Pisadevi','Patna','UP','234123','9998887776','mrinal@gmail.com','FRI'),
+(3,'Nikhil','Namdev','N-9, Bajrang Chowk','Phulambri','KA','565291','8889997653','nikhil@gmail.com','PRO'),
+(4,'Pavan','Zore','N-8, Gangapur','Aurangabad','MH','431007','9988776655','pavan@gmail.com','FA'),
+(5,'Atharva','Belge','N-2, TV Center','Nashik','MH','444333','9879879870','atharv@gmail.com','FRI'),
+(6,'Atharva','Belge','N-2, TV Center','Nashik','MH','444333','9879879870','atharv@gmail.com','FA');
+select * from address_book_;
