@@ -74,3 +74,10 @@ update address_book set type='Profession' where firstName='Prakash';
 -- Use case 10:
 -- Ability to get number of contact persons i.e. count by type
 select count(*) from address_book where type='Profession';
+
+-- Use case 11: 
+-- Ability to add person to both Friend and Family
+insert into address_book values('Atharva','Belge','N-2, TV Center','Nashik',
+'Maharashtra','444333','9879879870','atharv@gmail.com','Friends');
+insert into address_book values('Atharva','Belge','N-2, TV Center','Nashik',
+'Maharashtra','444333','9879879870','atharv@gmail.com','Family');
