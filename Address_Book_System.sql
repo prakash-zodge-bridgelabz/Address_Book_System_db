@@ -59,3 +59,14 @@ select count(*) from address_book where city='Aurangabad' and state='Maharashtra
 -- Use case 8 : 	
 -- Ability to retrieve entries sorted alphabetically by Person’s name for a given city
 select * from address_book where city='Aurangabad' order by firstName asc;
+
+-- Use case 9 : 
+-- Ability to identify each Address Book with name and Type. 
+-- - Here the type could Family, Friends, Profession, etc
+-- - Alter Address Book to add name and type
+alter table address_book add type varchar(15);
+select * from address_book;
+update address_book set type='Family' where firstName='Pavan';
+update address_book set type='Friends' where firstName='Mrinal';
+update address_book set type='Profession' where firstName='Nikhil';
+update address_book set type='Profession' where firstName='Prakash';
